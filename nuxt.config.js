@@ -37,7 +37,7 @@ export default {
   */
   plugins: [
     '@/plugins/element-ui',
-    //  '@/plugins/highcharts-vue'
+    '@/plugins/highcharts-vue'
   ],
   /*
   ** Nuxt.js dev-modules

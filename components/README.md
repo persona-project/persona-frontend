@@ -1,7 +1,34 @@
 # COMPONENTS
 
-**This directory is not required, you can delete it if you don't want to use it.**
+This directory is for instance of chart.<br>
+the directory is following:
+```
+D:.
+│
+│  README.md
+│
+├─Charts
+│      AreaChart.vue
+│      HistogramChart.vue
+│      LineChart.vue
+│      PieChart.vue
+│
+└─Maps
+        ChMap.vue
+```
+- For chart part
+```
+require:object
+name:recordData
+content:{
+    "titile": {:String},
+    "xAxis":{:String},
+    "yAxis":{:String},
+    "Data":{:Arrray}
+}
+``` 
 
-The components directory contains your Vue.js Components.
-
-_Nuxt.js doesn't supercharge these components._
+- For map part
+```
+//TODO
+``` 
