@@ -36,7 +36,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/highcharts-vue'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -47,7 +48,22 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios'
   ],
+  /**
+   * set axios proxy
+   */
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    'api': {
+
+      //TODO add host and port
+      target: "http://localhost:3000",
+      pathRewrite: { '^/api': '' }
+    }
+  },
   /*
   ** Build configuration
   */
