@@ -1,3 +1,10 @@
+/**
+ * 辅助函数
+ */
+const path = require('path')
+function resolve(dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 export default {
   mode: 'universal',
@@ -37,7 +44,9 @@ export default {
   */
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/highcharts-vue'
+    '@/plugins/highcharts-vue',
+    '@/plugins/icon',
+    '@/plugins/chart'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -56,6 +65,7 @@ export default {
   axios: {
     proxy: true
   },
+
   proxy: {
     'api': {
 
@@ -73,6 +83,22 @@ export default {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-    }
+
+      /**
+       * 添加svg的配置
+       */
+      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
+      svgRule.exclude = [resolve(__dirname, 'assets/icons/svg')]
+
+      // Includes /assets/icons/svg for svg-sprite-loader
+      config.module.rules.push({
+        test: /\.svg$/,
+        include: [resolve(__dirname, 'assets/icons/svg')],
+        loader: 'svg-sprite-loader',
+        options: {
+          symbolId: 'icon-[name]',
+        },
+      })
+    },
   }
 }

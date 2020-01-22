@@ -11,3 +11,7 @@ export const testPostApi = (data) => {
 export const testDeleteApi = (data) => {
     return axios.delete("/testDelete", data)
 }
+
+export const login=(data)=>{
+    return axios.get("/api/testGet", data)
+}
