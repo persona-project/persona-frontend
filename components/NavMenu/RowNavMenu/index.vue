@@ -5,34 +5,22 @@
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
+      :background-color=colorMod.backgroundColor
+      :text-color=colorMod.textColor
+      :active-text-color=colorMod.activeTextColor
     >
-    <el-col :span="4">
-    <el-menu-item>
-      <h3 class="title-text">MOOC PERSONA</h3>
-    </el-menu-item>
-    </el-col>
-      <el-menu-item index="1">处理中心</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-          <el-menu-item index="2-4-2">选项2</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="3" disabled>消息中心</el-menu-item>
-      <el-menu-item index="4">
-        <a href="https://www.ele.me" target="_blank">订单管理</a>
-      </el-menu-item>
-      <el-menu-item>
-        <el-switch v-model="mod" active-color="#ffd04b"  active-text="黑色模式" inactive-text="白色模式"></el-switch>
+      <el-col :span="4">
+        <el-menu-item>
+          <h3 class="title-text">MOOC PERSONA</h3>
+        </el-menu-item>
+      </el-col>
+
+      <el-menu-item index="1">数据中心</el-menu-item>
+      <el-menu-item index="2">数据预测</el-menu-item>
+      <el-menu-item index="3">消息中心</el-menu-item>
+
+      <el-menu-item class="mod-switch">
+        <el-switch v-model="mod" active-color="#ffd04b" active-text="黑色模式" inactive-text="白色模式"></el-switch>
       </el-menu-item>
     </el-menu>
   </div>
@@ -43,21 +31,42 @@ export default {
     return {
       activeIndex: "1",
       activeIndex2: "1",
-      mod: true
+      mod: false,
+      colorMod: {
+        backgroundColor: "#545c64",
+        textColor: "#fff",
+        activeTextColor: "#ffd04b"
+      }
     };
+  },
+  computed(){
+    this.backgroundColorFn()
   },
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
+    },
+    backgroundColorFn(){
+      if(this.mod===true){
+        this.colorMod.backgroundColor="#fff"
+        this.colorMod.textColor=""
+        this.colorMod.activeTextColor=""
+      }
     }
   }
+  
 };
 </script>
 <style scoped  rel="stylesheet/scss" lang="scss">
-.el-menu-demo{
-  .title-text{
-    &:hover{color:#ffd04b}
-
+.el-menu-demo {
+  .title-text {
+    &:hover {
+      color: #ffd04b;
+    }
+  }
+  .mod-switch {
+    position: relative;
+    margin-left: 45%;
   }
 }
 </style>

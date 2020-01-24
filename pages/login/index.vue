@@ -27,6 +27,7 @@
 </template>
 <script>
 export default {
+  layout:"plain",
   data() {
     return {
       loginform: {

@@ -10,7 +10,7 @@ export default {
   data(){
     return{
       recordData:{
-        title:"test",
+        title:"test///behaviour",
         xAxis:"xAxis",
         yAxis:"yAxis",
         data:[12,12,34,12,35,45,67,78]

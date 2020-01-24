@@ -2,6 +2,15 @@
 
 **This directory is not required, you can delete it if you don't want to use it.**
 
-This directory contains your Application Layouts.
+- 目录文件结构如下:
+```js
+D:.
+    default.vue//主页面的layout
+    plain.vue//其它页面的layout
+    README.md
+```
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/views#layouts).
+- `TODOS`
+    - 添加nuxt-link
+    - 通过route？赋值
+    - css布局
