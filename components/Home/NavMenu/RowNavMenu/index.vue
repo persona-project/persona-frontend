@@ -5,9 +5,9 @@
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
-      :background-color=colorMod.backgroundColor
-      :text-color=colorMod.textColor
-      :active-text-color=colorMod.activeTextColor
+      :background-color="colorMod.backgroundColor"
+      :text-color="colorMod.textColor"
+      :active-text-color="colorMod.activeTextColor"
     >
       <el-col :span="4">
         <el-menu-item>

@@ -8,7 +8,7 @@ D:.
 │  README.md
 │
 ├─Charts
-│      AreaChart.vue
+│      AreaChart.vue                                                                                                      
 │      HistogramChart.vue
 │      LineChart.vue
 │      PieChart.vue

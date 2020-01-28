@@ -33,6 +33,11 @@ export default {
         ]
       }
     };
+  },
+  methods:{
+    myCallback(){
+      
+    }
   }
 };
 </script>

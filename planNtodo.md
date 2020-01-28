@@ -10,7 +10,9 @@
     - layout 里面v-for?
     - 手撸每一个?
 --- 
+
 `plan`
 ![avatar](./images/mermaid-plan.png)
+
 ---
 `structure`
