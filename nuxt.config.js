@@ -57,7 +57,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
   /**
    * set axios proxy
@@ -67,11 +68,11 @@ export default {
   },
 
   proxy: {
-    'api': {
+    '/api': {
 
       //TODO add host and port
       target: "http://localhost:3000",
-      pathRewrite: { '^/api': '' }
+      pathRewrite: { '^/api': '/' }
     }
   },
   /*
