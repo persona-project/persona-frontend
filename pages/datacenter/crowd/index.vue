@@ -1,15 +1,15 @@
 <template>
   <div id="box">
-    <div class="box" v-infinite-scroll="load" infinite-scroll-disabled="disabled" >
+    <div class="box" v-if="flag" infinite-scroll-disabled="disabled" >
         <ul class="list" >
           <li>
-           <line-chart v-bind:recordData="recordData"></line-chart>
+           <line-chart v-bind:recordData="recordData" v-if="flag"></line-chart>
           </li>
           <li>
-           <line-chart v-bind:recordData="recordData"></line-chart>
+           <line-chart v-bind:recordData="recordData" v-if="flag"></line-chart>
           </li>
           <li>
-           <line-chart v-bind:recordData="recordData"></line-chart>
+           <line-chart v-bind:recordData="recordData" v-if="flag"></line-chart>
           </li>
           <!--li v-for="(i,index) in list" class="list-item" :key="index">{{ i.noticeTitle }}</li-->
         </ul>
@@ -22,18 +22,17 @@
 </template>
 
 <script>
+import {getAgeCnt} from "../../../service/apis"
+import {list2Ob} from "../../../utils/dispose"
 export default {
   data() {
     return {
-      count: 0,//起始页数值为0
-      loading: false,
-      totalPages: "",//取后端返回内容的总页数
-      list: [1,2,3,4,5,6,7,9,19,12,13,14,15,16,18,19], //后端返回的数组
+      flag:false,
        recordData:{
         title:"test////dialogue",
         xAxis:"xAxis",
         yAxis:"yAxis",
-        data:[12,12,34,12,35,45,67,78]
+        data:[]
       }
     };
   },
@@ -50,34 +49,18 @@ export default {
     this.getMessage();
   },
   methods: {
-    load() {
-      //滑到底部时进行加载
-      this.loading = true;
-      setTimeout(() => {
-        this.count += 1; //页数+1
-        this.getMessage(); //调用接口，此时页数+1，查询下一页数据
-      }, 2000);
-    },
-    getMessage() {
-      let params = {
-        pageNumber: this.count,
-        pageSize: 10 //每页查询条数
-      };
-      this.$axios
-        .post(
-          "https://接口",
-          params
-        )
-        .then(res => {
-          console.log(res);
-          this.list = this.list.concat(res.data.body.content); //因为每次后端返回的都是数组，所以这边把数组拼接到一起
-          this.totalPages = res.data.body.totalPages;
-          this.loading = false;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
+   getMessage(){
+     let params={}
+     getAgeCnt(params).then(chunck=>{
+       console.dir(chunck)
+       let data=list2Ob(chunck)
+       this.recordData.data=data.count
+       console.log(data.count)
+       this.flag=true
+     }).catch(err=>{
+       console.log(err)
+     })
+   }
   }
 };
 </script>
