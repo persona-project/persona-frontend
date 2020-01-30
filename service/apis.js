@@ -1,6 +1,6 @@
 import axios from "./index"
 
-export const login=(params)=>{
+export const login = (params) => {
     return axios.post(params)
 }
 
@@ -30,34 +30,34 @@ export const getBrowseCnt = (params) => {
     return axios.get("/post/countBrowse", params)
 }
 
-export const getReplyCnt=(params)=>{
-    return axios.get("/post/countReply",params)
+export const getReplyCnt = (params) => {
+    return axios.get("/post/countReply", params)
 }
 
-export const getVoteCnt=(params)=>{
-    return axios.get("/post/countVote",params)
+export const getVoteCnt = (params) => {
+    return axios.get("/post/countVote", params)
 }
 
-export const getDeletedCnt=(params)=>{
-    return axios.get("/post/deleted",params)
+export const getDeletedCnt = (params) => {
+    return axios.get("/post/deleted", params)
 }
 
-export const getLastReplyTime=(params)=>{
-    return axios.get("/post/lastReplayTime",params)
+export const getLastReplyTime = (params) => {
+    return axios.get("/post/lastReplayTime", params)
 }
 
-export const getPostTime=(params)=>{
-    return axios.get("/post/postTime",params)
+export const getPostTime = (params) => {
+    return axios.get("/post/postTime", params)
 }
 
-export const getTagAgree=(params)=>{
-    return axios.get("/post/tagAgree",params)
+export const getTagAgree = (params) => {
+    return axios.get("/post/tagAgree", params)
 }
 
-export const getTagLector=(params)=>{
-    return axios.get("/post/tagLector",params)
+export const getTagLector = (params) => {
+    return axios.get("/post/tagLector", params)
 }
 
-export const getTagTop=(params)=>{
-    return axios.get("/post/tagTop",params)
+export const getTagTop = (params) => {
+    return axios.get("/post/tagTop", params)
 }
